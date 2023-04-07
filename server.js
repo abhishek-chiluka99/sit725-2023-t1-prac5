@@ -10,6 +10,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+//getting the collection from mongodb.
 function dbConnection(collectionName) {
     client.connect(err => {
         dbCollection = client.db().collection(collectionName);
@@ -22,10 +23,12 @@ function dbConnection(collectionName) {
     });
 }
 
+//inserting the data in mongodb
 function insert(cat, callback) {
     dbCollection.insertOne(cat, callback);
 }
 
+//getting all data 
 function getAllCats(callback) {
     dbCollection.find().toArray(callback);
 }

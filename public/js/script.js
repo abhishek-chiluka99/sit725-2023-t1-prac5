@@ -1,5 +1,5 @@
 
-
+//used for adding cards to the HTML
 const addCards = (items) => {
     console.log(items);
     items.forEach(item => {
@@ -8,6 +8,7 @@ const addCards = (items) => {
     });
 }
 
+//Run on clickin on submit
 const submitForm = () => {
     let formData = {};
     formData.title = $('#title').val();
@@ -19,6 +20,7 @@ const submitForm = () => {
    
 }
 
+//getting data from database.
 const getData= () => {
     $.get('/api/lang', (res) => {
         if (res.statusCode === 200) {
@@ -27,6 +29,7 @@ const getData= () => {
     });
 }
 
+//adding data to the database.
 const addData = (data) => {
     $.ajax({
         url: 'api/lang',
@@ -38,6 +41,7 @@ const addData = (data) => {
         }
     });
 }
+
 
 $(document).ready(function(){
     $('.materialboxed').materialbox();
