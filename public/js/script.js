@@ -21,8 +21,8 @@ const submitForm = () => {
 }
 
 //getting data from database.
-const getData= () => {
-    $.get('/api/lang', (res) => {
+const getCats = () => {
+    $.get('/api/cats', (res) => {
         if (res.statusCode === 200) {
             addCards(res.data);
         }
@@ -32,7 +32,7 @@ const getData= () => {
 //adding data to the database.
 const addData = (data) => {
     $.ajax({
-        url: 'api/lang',
+        url: 'api/cats',
         data: data,
         type: 'POST',
         success: (result) => {
@@ -47,7 +47,7 @@ $(document).ready(function(){
     $('.materialboxed').materialbox();
     $('.modal').modal();
 
-    getData();
+    getCats();
 
     $('#formSubmit').click(()=>{
         submitForm();
